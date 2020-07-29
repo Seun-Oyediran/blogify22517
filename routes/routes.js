@@ -98,7 +98,7 @@ router.get('/home', ensureAuth, async (req, res) => {
     } else {
         page = +req.query.page
     }
-    let post = await Post.find({ blogger: req.user.id }).populate('blogger').sort({ createdAt: 1 })
+    let post = await Post.find({ blogger: req.user.id }).populate('blogger').sort({ createdAt: -1 })
     let title = 'Home'
     let length = post.length
     let start = (page - 1) * limit
@@ -132,7 +132,7 @@ router.get('/blogger/:id', ensureAuth, async (req, res) => {
     } else {
         page = +req.query.page
     }
-    let post = await Post.find({ blogger: req.params.id, status: 'Public' }).sort({ createdAt: 1 }).populate('blogger')
+    let post = await Post.find({ blogger: req.params.id, status: 'Public' }).sort({ createdAt: -1 }).populate('blogger')
 
     let length = post.length
     let start = (page - 1) * limit

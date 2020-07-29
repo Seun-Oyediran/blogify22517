@@ -16,7 +16,7 @@ router.get('/', ensureAuth, async (req, res) => {
     } else {
         page = +req.query.page
     }
-    let post = await Post.find({ status: 'Public' }).sort({ createdAt: 1 }).populate('blogger')
+    let post = await Post.find({ status: 'Public' }).sort({ createdAt: -1 }).populate('blogger')
     let length = post.length
     let start = (page - 1) * limit
     let end = (page) * limit

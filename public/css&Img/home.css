@@ -87,4 +87,8 @@ thead{
     table th:nth-of-type(3){
         display: none;
     }
+    .buttons > a{
+        padding: 4px 13px;
+        margin-right: 3px;
+    }
 }

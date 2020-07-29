@@ -55,7 +55,7 @@
                 <%if(user.id == posts.blogger.id){%>
                 You
                 <%}else{%>
-                <a href="#"><%= posts.blogger.name%></a>
+                <a href="/blogger/<%= posts.blogger.id %>"><%= posts.blogger.name%></a>
                 <%}%>
             </p>
             <div class="body">
