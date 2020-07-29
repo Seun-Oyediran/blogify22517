@@ -1,0 +1,38 @@
+<%if(successMsg != ''){%>
+<p class="succ"><%= successMsg %> <span>&times;</span> </p>
+<%}%>
+    <%if(error != ''){%>
+<p class="error"><%= error %> <span>&times;</span> </p>
+<%}%>
+
+
+<%if(error != '' || successMsg != ''){%>
+<script>
+
+    const errorCloser = document.querySelectorAll('.error > span')
+    for (let i = 0; i < errorCloser.length; i++) {
+        errorCloser[i].addEventListener('click', () => {
+            errorCloser[i].parentElement.style.display = 'none'
+        })
+
+    }
+    const succCloser = document.querySelectorAll('.succ > span')
+    for (let i = 0; i < succCloser.length; i++) {
+        succCloser[i].addEventListener('click', () => {
+            succCloser[i].parentElement.style.display = 'none'
+        })
+
+    }
+    let errors = document.querySelectorAll('.error')
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            errors.forEach((err) => {
+                err.style.display = 'none'
+            })
+            document.querySelector('.succ').style.display = 'none'
+        }, 5000);
+
+    })
+
+</script>
+<%}%>

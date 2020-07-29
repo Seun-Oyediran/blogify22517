@@ -1,0 +1,88 @@
+<!-- <link rel="stylesheet" href="/css&Img/posts.css"> -->
+<%-include ('_nav.ejs')%>
+<style>
+    .read-post {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 1rem 2rem;
+        margin: 1rem 0;
+        border-radius: 6px;
+    }
+
+    .read-post>h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .read-post>p,
+    .read-post>div {
+        margin: 0.5rem 0;
+    }
+
+    .read-post>div {
+        margin-top: 2rem;
+    }
+
+    .back-btn>a {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: #333333;
+        background-color: #333333;
+        color: white;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+        margin: 0.5rem 0;
+    }
+
+    @media(max-width: 750px) {
+        .read-post {
+            padding: 0.7rem 0.5rem;
+        }
+    }
+</style>
+
+<section>
+    <div class="container">
+        <div class="back-btn">
+            <a href="#">Back</a>
+        </div>
+        <div class="read-post">
+            <h1><%= posts.title%></h1>
+            <p> <%= posts.createdAt.toLocaleString()%>, By:
+                <%if(user.id == posts.blogger.id){%>
+                You
+                <%}else{%>
+                <a href="#"><%= posts.blogger.name%></a>
+                <%}%>
+            </p>
+            <div class="body">
+                <%- posts.body%>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
+
+<%-include ('_footer.ejs')%>
+<%-include ('_new-post.ejs')%>
+<%-include ('gsap.ejs')%>
+<%-include ('_nav-gsap.ejs')%>
+<script>
+    let height = document.querySelector('footer').getBoundingClientRect().top
+    if (height > (window.innerHeight / 1.1)) {
+        document.querySelector('footer').style.display = 'block'
+
+    } else {
+        document.querySelector('footer').style.display = 'none'
+
+    }
+    document.querySelector('.back-btn > a').addEventListener('click', (e) => {
+        e.preventDefault()
+        window.history.go(-1)
+    })
+</script>

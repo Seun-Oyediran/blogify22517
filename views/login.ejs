@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css&Img/login.css">
+<section>
+    <div class="container">
+
+        <div class="login-card">
+            <h1><i class="fas fa-book-reader"></i> Blogify</h1>
+            <h3>LOG IN</h3>
+            <%-include ('_flash-message.ejs')%>
+            <form action="/login" method="POST">
+                <input type="email" name="email" required placeholder="Email">
+                <!-- <input type="text" name="name" required placeholder="Name"> -->
+                <input type="password" name="password" placeholder="Password">
+                <!-- <input type="password" name="password2" placeholder="Re-password"> -->
+                <div class="submit">
+                    <button>Log In</button>
+                </div>
+            </form>
+            <div class="new-acc">
+                <p>Don't have an account? <a href="/signup">Sign Up here</a></p>
+            </div>
+            <h2>OR</h2>
+            <a href="/auth/google"><i class="fab fa-google"></i> Log In with Google</a>
+        </div>
+    </div>
+</section>
+<%-include ('gsap.ejs')%>
+<script>
+    gsap.fromTo('.login-card', 1, { yPercent: 100, ease: 'slow' }, { yPercent: 0 })
+
+</script>

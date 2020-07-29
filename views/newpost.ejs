@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css&Img/newpost.css">
+<%-include ('_nav.ejs')%>
+
+
+<section>
+    <div class="container">
+        <h1>Create Post</h1>
+        <form action="/posts" method="POST">
+            <div class="title">
+                <label>Title</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="status">
+                <label>Status</label>
+                <select name="status">
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
+
+                </select>
+            </div>
+            <div class="body">
+                <label>Body</label>
+                <textarea name="body"></textarea>
+            </div>
+            <div class="submit">
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%-include ('_footer.ejs')%>
+<%-include ('gsap.ejs')%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
+    integrity="sha512-P4rrEImABBYtBFdmrFPqF8rjh8iiRiupfQ4KLrBCL8dAivLiM2nh+1bJQeMb2ZglmIlGZdfTtgGdXH6H/hGVeg=="
+    crossorigin="anonymous"></script>
+<script>
+    CKEDITOR.replace('body',
+        {
+            plugins: 'wysiwygarea, link, basicstyles, toolbar, font'
+        })
+    let height = document.querySelector('footer').getBoundingClientRect().top
+    if (height > (window.innerHeight / 1.1)) {
+        document.querySelector('footer').style.display = 'block'
+
+    } else {
+        document.querySelector('footer').style.display = 'none'
+
+    }
+</script>
+<%-include ('_nav-gsap.ejs')%>

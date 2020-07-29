@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/css&Img/posts.css">
+<%-include ('_nav.ejs')%>
+<style>
+    .container>h1 {
+        text-transform: capitalize;
+    }
+</style>
+<section>
+    <div class="container">
+
+        <h1><%= posts[0].blogger.name%>'s Posts:</h1>
+        <div class="posts-container">
+            <%for(let i = 0; i < posts.length; i++){%>
+            <div class="post-box">
+                <h2><%= posts[i].title %></h2>
+                <p><%= posts[i].createdAt.toLocaleString() %></p>
+                <%if(user.name == posts[i].blogger.name ){%>
+                <p> <span>By:</span> <br> You</p>
+                <%}else{%>
+                <p> <span>By:</span> <br><a href="#">
+                        <%= posts[i].blogger.name %>
+                    </a></p>
+                <%}%>
+                <!-- <p> <span>By:</span> <br> <%= posts[i].blogger.name %></p> -->
+                <div class="post-links">
+                    <a href="/posts/<%= posts[i].id%>">Read</a>
+                    <%if(user.id == posts[i].blogger.id ){%>
+                    <a href="/edit/<%= posts[i].id%>" class="edit">Edit</a>
+                    <a href="#" class="delete-trigger"> <span><%= posts[i].id %></span> Delete</a>
+                    <%}%>
+                    
+                </div>
+            </div>
+            <%}%>
+
+
+                </div>
+            </div>
+</section>
+
+
+
+<%-include ('_navigation.ejs')%>
+<%-include ('_footer.ejs')%>
+<%-include ('_new-post.ejs')%>
+<%-include ('_modal.ejs')%>
+<%-include ('gsap.ejs')%>
+<%-include ('_nav-gsap.ejs')%>
+<script>
+    let height = document.querySelector('footer').getBoundingClientRect().top
+    if (height > (window.innerHeight / 1.1)) {
+        document.querySelector('footer').style.display = 'block'
+
+    } else {
+        document.querySelector('footer').style.display = 'none'
+
+    }
+</script>

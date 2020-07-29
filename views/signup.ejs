@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css&Img/signup.css">
+<style>
+    @media(max-width:1050px) {
+        .login-card {
+            width: 60%;
+        }
+    }
+
+    @media(max-width:750px) {
+        .login-card {
+            width: 80%;
+        }
+    }
+
+    @media(max-width:600px) {
+        .login-card {
+            width: 98%;
+        }
+    }
+</style>
+<section>
+    <div class="container">
+        <div class="login-card back">
+            <h1><i class="fas fa-book-reader"></i> Blogify</h1>
+            <h3>SIGN UP</h3>
+            <%if(typeof err != 'undefined'){%>
+            <%for(let i = 0; i < err.length; i++){%>
+            <p class="error"><%= err[i]%> <span>&times;</span> </p>
+            <%}%>
+            <%}%>
+            <form action="/signup" method="POST">
+                <input type="email" name="email" required placeholder="Email">
+                <input type="text" name="name" required placeholder="Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password2" placeholder="Re-password">
+                <div class="submit">
+                    <button>Sign Up</button>
+                </div>
+            </form>
+            <div class="new-acc">
+                <p>Have an account already? <a href="/" class="reverse">Log In Here</a></p>
+            </div>
+            <h2>OR</h2>
+            <a href="/auth/google"><i class="fab fa-google"></i> Log In with Google</a>
+        </div>
+
+    </div>
+</section>
+<%-include ('gsap.ejs')%>
+<script>
+    gsap.fromTo('.login-card', 1, { yPercent: -100, ease: 'slow' }, { yPercent: 0 })
+
+    const errorCloser = document.querySelectorAll('.error > span')
+    for (let i = 0; i < errorCloser.length; i++) {
+        errorCloser[i].addEventListener('click', () => {
+            errorCloser[i].parentElement.style.display = 'none'
+        })
+
+    }
+
+</script>

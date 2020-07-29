@@ -1,0 +1,116 @@
+<style>
+    nav {
+        background-color: #222222;
+        box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.3), 0px 5px 10px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        color: white;
+        padding: 0.7rem 0;
+    }
+
+    .nav-contents {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .nav-contents>h1>a {
+        color: white;
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 30px;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .links-box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #eeeeee;
+        opacity: 0.98;
+        /* background-color: white; */
+        overflow-x: hidden;
+        box-shadow: 5px 0px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .links {
+        margin-top: 1rem;
+        padding: 2rem;
+    }
+
+
+    .links-closer {
+        position: fixed;
+        top: 0;
+        left: 250px;
+        width: 0;
+        height: 100%;
+        /* background-color: black; */
+    }
+
+    .links>a {
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 0.5rem 0;
+        font-size: 14px;
+        color: black;
+        padding: 0.5rem 0;
+    }
+
+    .links>a:hover {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media(max-width: 500px) {
+        nav {
+            padding: 0.4rem;
+        }
+
+        .nav-contents {
+            text-align: center;
+            font-size: 19px;
+        }
+
+        .hamburger {
+            font-size: 25px;
+            padding: 0.3rem;
+        }
+    }
+</style>
+
+
+<nav>
+    <div class="container">
+        <div class="nav-contents">
+            <h1>
+                <a href="/home"> <i class="fas fa-book-reader"></i> Blogify</a>
+            </h1>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars "></i>
+        </div>
+        <div class="links-closer"></div>
+        <div class="links-box">
+            <div class="links">
+                <a href="/home">Dashboard</a>
+                <a href="/posts">Public Posts</a>
+                <a href="/newpost">Create Post</a>
+                <a href="/logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>

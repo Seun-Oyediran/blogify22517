@@ -1,0 +1,13 @@
+<section class="navigation">
+    <div class="container">
+        <div class="navigation-buttons">
+            <%if(start > 0){%>
+            <a href="<%=link%>?page=<%= page - 1%>">Prev</a>
+            <%}%>
+            <%if(end < length){%>
+            <a href="<%=link%>?page=<%= page + 1%>">Next</a>
+            <%}%>
+            
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+<script>
+    let navTl = gsap.timeline({ reversed: true })
+    navTl.to('.links-box', 0.5, { width: 250, ease: 'slow' }).fromTo('.links a ', 0.4, { x: 200, stagger: 0.2 }, { x: 0, stagger: 0.1 }, '-=0.3').to('.links-closer', 0, { width: '100%' }, '-=0.7')
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        navTl.play()
+    })
+
+    document.querySelector('.links-closer').addEventListener('click', (e) => {
+        e.preventDefault()
+        navTl.reverse()
+    })
+</script>
