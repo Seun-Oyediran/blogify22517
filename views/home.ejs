@@ -4,7 +4,7 @@
 <section>
     <div class="container">
         <h1>Dashboard</h1>
-        <p>Welcome <span>Oyediran Seun</span>, Here are your posts</p>
+        <p>Welcome <span><%=user.name%></span>, Here are your posts</p>
         <%-include ('_flash-message.ejs')%>
 
         <%if( posts != ''){%>

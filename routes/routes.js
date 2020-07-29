@@ -90,6 +90,7 @@ router.get('/auth/google/callback',
     });
 
 router.get('/home', ensureAuth, async (req, res) => {
+    let user = req.user
     let link = '/home'
     let page = 1
     if (typeof req.query.page == 'undefined') {
@@ -103,7 +104,7 @@ router.get('/home', ensureAuth, async (req, res) => {
     let start = (page - 1) * limit
     let end = (page) * limit
     let posts = post.slice(start, end)
-    res.render('home', { title, posts, page, start, end, length, link })
+    res.render('home', { title, posts, page, start, end, length, link, user })
 })
 
 
