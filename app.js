@@ -28,8 +28,8 @@ app.use(express.json())
 
 app.use(session({
     secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
